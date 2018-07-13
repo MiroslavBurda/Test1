@@ -70,11 +70,11 @@ Pod drivery jsou posuvné registry 5B, které generují signál pro motory podle
 
 13. Expandér pinů. 13A jsou piny pro sledování přerušení na portu A a portu B expandéru. 
 
-14. Tla(čítka S1, S2, S3. 
+14. Tlačítka S1, S2, S3. 
 
 15. ESP32 dev kit 
 
-16. "zpětivoltovávač" - malá deska, která vytváří 5V pro signál I2C a pro signál pro připojení inteligentních LED a podobně - viz č. 23.
+16. Deska, která převádí signál I2C z 3,3V na 5V a signál pro připojení inteligentních LED a podobně - viz č. 17 a 23.
 
 17. 2x I2C na 5V
 
@@ -88,18 +88,12 @@ Přitom piny tvoří kaskádu, tj. musím nedřív propojit jumper 22A, potom 22
 
 21. Místo pro osazení spínaných zdrojů (step-down): 21A, 21B, 21C, 1D. Každý zdroj má vyvedený tzv. enable-pin. 
 Zdroje jsou ve výchozím stavu zapnuté a lze je  vypnout tak, že na enable-pin přivedu kabelem z jiného pinu potřebný signál. 
-****************************
-Na každý spínaný zdroj (step-down) je možné připojit jedno servo nebo dvě mikroserva. Přitom zdroj 21D obsluhuje horní dva piny 5V, zdroj 21C dva piny 5V pod nimi, zdroj 21B opět dva piny 5V pod nimi a zdroj 21A všechny zbývající piny 5V kromě spoeních osmi.
-osmi???*************************
+
+Na každý spínaný zdroj (step-down) je možné připojit jedno servo nebo dvě mikroserva. Piny jsou vyvedeny tak, aby bylo možné serva připojit přímo. Přitom zdroj 21D obsluhuje horní dva piny 5V, zdroj 21C dva piny 5V pod nimi, zdroj 21B opět dva piny 5V pod nimi a zdroj 21A všechny zbývající piny 5V kromě spoeních osmi.
+
 
 22. Jumpry pro připojení spínaných zdrojů z bodu 21, písmeno vždy odpovídá: 22A, 22B, 22C, 22D.
 
 23. Signál pro inteligentní LED nebo podobné zařízení - piny na desce nejvíce vpravo (nejsou vyznačeny).
-
-
-
-
-
-teoreticky lze po proškrábnutí propojky přivést na pin vedle ní libovolné (do 30V) na 5V I2C a inteligentní LED - bez R7 a R6 a R4 a R15-R17 - v praxi radši nedělat 
 
  
