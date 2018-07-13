@@ -1,4 +1,4 @@
-# Popis desky RB3201-RBControl
+# Vlastnosti desky RB3201-RBControl
 
 ## Určení a cíl
 
@@ -44,6 +44,8 @@ lze použít i samostatně (pouze piny SCL, SDA, GND, 3V3)
 zbývá 14 
 
 ( expandér pinů je připojený na I2C )
+
+# Popis rozložení pinů na desce RBC
 
 čtveřice pinů nahoře: 
 Reset, ON, OFF, vypínání desky 
