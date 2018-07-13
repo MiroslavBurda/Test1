@@ -64,9 +64,11 @@ Při popisu budeme postupovat zleva doprava a shora dolů.
 
 3. Výstupní piny, slouží signálovému propojení s další deskou RBC. 
 
-4. Výstupní napájení. Použije se v případě připojení další RBC desky. 
+4. Výstupní napájení. Použije se v případě připojení další RBC desky jako vstupní napájení pro připojenou desku. 
 
 5. Drivery pro DC motory. Každý driver poskytuje PWM napájení pro dva motory. 
+
+6. Výstupní piny, slouží signálovému propojení s další deskou RBC. 
 
 čtveřice pinů nahoře: 
 Reset, ON, OFF, vypínání desky 
