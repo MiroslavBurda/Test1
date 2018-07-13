@@ -2,7 +2,12 @@
 
 ## Určení a cíl
 
-RBController je univerzální deska pro stavbu hobby robotů. 
+RBController je univerzální deska pro stavbu hobby robotů. Jde v podstatě o shield k desce 
+ [ESP32 dev kit](https://www.espressif.com/en/products/hardware/esp32-devkitc/overview), který má dva hlavní cíle: rozšířit počet pinů této desky a umožnit snadné připojení velkého množství různých periférií. 
+
+## Hlavní vlastnosti 
+
+Deska umožňuje současně ovládat až 8 DC motorů (1,5 A trvale, 2A špičkově každý).  
 
 ## Napájení
 
@@ -19,7 +24,7 @@ piny vpravo lze zapojit na "centrální zdroj" - propojuje se to jumpery, piny t
 Expandér funguje na 3,3 V , má dva porty A, B - každý má 8 pinů, A je pro uživatele, B je pro tlačítka, LED a vypínání 
 
 Možnosti : 
-8 DC motorů (1,5 A trvale, 2A špičkově) 
+
 driver má ochranu proti přetížení i přehřátí -> vypne 
 řada pinů za svorkovnicemi - připojení motorů a enkodérů 
 do motorů jde baterkové napětí, + 5V napájení enkodérů 
