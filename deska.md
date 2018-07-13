@@ -31,21 +31,18 @@ piny vpravo lze zapojit na "centrální zdroj" - propojuje se  jumpery, piny tvo
 ### Popis expandéru
 
 
-Expandér funguje na 3,3 V , má dva porty A, B - každý má 8 pinů, A je pro uživatele, B je pro tlačítka, LED a vypínání 
+Expandér funguje na 3,3 V , má dva porty A, B - každý má 8 pinů, A je pro uživatele, B je pro tlačítka, LED a vypínání
 
-Možnosti : 
-
-driver má ochranu proti přetížení i přehřátí -> vypne 
-řada pinů za svorkovnicemi - připojení motorů a enkodérů 
+ 
+ 
 do motorů jde baterkové napětí, + 5V napájení enkodérů 
 z enkodérů jdou 3,3V (čip si drží 3,3 a sonda když chce ho přetáhne k zemi <--> hallova sonda má otevřený kolektor 
 a neumí se proto sama přepnout na logickou 1 ) čínské motory by se měly chovat stejně, protože mají na sobě stejné hallovy sondy, 
 mají také navíc pull-upy k 5V, ale tak velké, že by to ESP mělo přežít 
 je potřeba si zjistit, které piny jsou použité pro enkodéry a nepoužívat je na něco jiného 
-
- I2C jsou 2+4 x 3,3 V + 2x 5V 
+ 
 dále jsou I2C na IN a OUT - použije se v případě zřetězní desek - je možné jedním ESP ovládat další desku s motory, ale bez enkodérů 
-lze použít i samostatně (pouze piny SCL, SDA, GND, 3V3) 
+
 26 pinů, z toho 4 pouze vstupní, na dvou je sériová linka, na dvou je I2C, 3 piny jsou komunikace s drivery pro motory, 1 pin měří napětí na baterii 
 zbývá 14 
 
@@ -65,13 +62,42 @@ Při popisu budeme postupovat zleva doprava a shora dolů.
 3. Výstupní piny, slouží signálovému propojení s další deskou RBC. 
 
 4. Výstupní napájení. Použije se v případě připojení další RBC desky jako vstupní napájení pro připojenou desku. 
+ Piny SCL, SDA, GND, 3V3 lze použít i samostatně jako další I2C port.
+ 
+5. Drivery pro DC motory. Každý driver poskytuje PWM napájení pro dva motory. Každý driver má vyvedený pin 5a (FAULT), 
+kde je možné měřit, jestli se nenachází v chybovém stavu. Každý driver má ochranu proti přetížení i přehřátí -> vypne se. 
 
-5. Drivery pro DC motory. Každý driver poskytuje PWM napájení pro dva motory. 
+6. Vstupní piny, slouží signálovému propojení s řídící deskou RBC. 
+  Piny SCL, SDA, GND, 3V3 lze použít i samostatně jako další I2C port.
 
-6. Výstupní piny, slouží signálovému propojení s další deskou RBC. 
+7. Vstupní napájení z baterie nebo z řídící RBC desky. 
 
-čtveřice pinů nahoře: 
-Reset, ON, OFF, vypínání desky 
+8. Jde o čtveřici jumperů, zleva doprava při propojení provedou následující: Reset RBC, zapnutí RBC, vypnutí RBC, ********* 
+
+9. Stabilizátor 7805 (dodává cca 1 A, většinu z tohoto proudu spotřebuje RBC pro svůj provoz). Místo 7805 je možné osadit spínaný zdroj, který dodává cca 2A. 
+
+10. Port B z expandéru. Na tomto portu jsou také připojená tlačítka a LED. 
+
+11. Tranzistor Q1. 
+
+12.  Tranzistor Q3. Po osazení tranzistorem Q3 je deska chráněná proti přepólování.
+
+13. Expandér pinů. 
+
+14. Tla(čítka S1, S2, S3. 
+
+15. ESP32 dev kit 
+
+16. "zpětivoltovávač" - malá deska, která vytváří 5V pro I2C a pro signál pro připojení inteligentních LED a podobně - viz č. *****
+
+17. 2x I2C na 5V
+
+18. 3x I2C na 3,3V
+
+19. 4x LED 
+
+
+
 
 zpětivoltovávač dává 5V signál (pouze signál z I2C) pro I2C 5V + piny pro inteligentní LED
  
