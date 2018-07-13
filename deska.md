@@ -58,11 +58,12 @@ Pod drivery jsou posuvné registry 5B, které generují signál pro motory podle
 
 7. Vstupní napájení z baterie nebo z řídící RBC desky. 
 
-8. Jde o čtveřici jumperů, zleva doprava při propojení provedou následující: Reset RBC, zapnutí RBC, vypnutí RBC, ********* 
+8. Jde o čtveřici jumperů, zleva doprava při propojení provedou následující: Reset RBC, zapnutí RBC, vypnutí RBC, vypnutí RBC v případě, že expandér není osazen nebo nefunguje.  
 
 9. Stabilizátor 7805 (dodává cca 1 A, většinu z tohoto proudu spotřebuje RBC pro svůj provoz). Místo 7805 je možné osadit spínaný zdroj, který dodává cca 2A.
 
-10. Port B z expandéru. Na tomto portu jsou také připojená tlačítka a LED. 
+10. Port B z expandéru. Zleva doprava jsou to piny: 5V, GND, 2x signálový pín (ten stejný).
+Na tomto portu jsou také připojená tlačítka, všechny LED a **vypínání desky (pin B7)**. Pozor, ve verzi 1.2 jsou popisy pinů posuté o jeden pin dolů.
 
 11. Tranzistor Q1. 
 
