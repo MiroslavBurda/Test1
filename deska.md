@@ -7,11 +7,11 @@ RB3201 - RBControl (RBC) je univerzální deska pro stavbu hobby robotů. Jde v 
 
 ## Hlavní vlastnosti 
 
-Deska RBC umožňuje současně ovládat až 8 DC motorů (1,5 A trvale, 2A špičkově každý). Dále umí po osazení spínanými zdroji napájet a ovládat 4 serva nebo 8 mikroserv. Má vyvedeno celkem 6 I2C sběrnic na 3,3 V a 2 I2C sběrnice na 5V. Dále je na desce expandér pinů, který je připojený na I2C a obsluhuje další dva porty A,B po 8 pinech. Na desce jsou vyvedená tři tlačítka, 4 LED a piezo. 
+Deska RBC umožňuje současně ovládat až 8 DC motorů (1,5 	  A trvale, 2A špičkově každý). Dále umí po osazení spínanými zdroji napájet a ovládat 4 serva nebo 8 mikroserv. Má vyvedeno celkem 6 I2C sběrnic na 3,3 V a 2 I2C sběrnice na 5V. Dále je na desce expandér pinů, který je připojený na I2C a obsluhuje další dva porty A,B po 8 pinech. Na desce jsou vyvedená tři tlačítka, 4 LED a piezo. 
 
 ## Další vlastnosti 
 
-Po osazení tranzistorem Q3 je deska chráněná proti přepólování. Přímo na desce je možné měřit reálné hodnoty napětí 3,3V a
+Po osazení tranzistorem Q3 je deska chráněná proti přepólování. Přímo na desce je možné měřit reálné hodnoty napětí 3,3 	  V a
 5V rozvedených po desce. 
 
 Čip ESP32 má 26 použitelných pinů, z toho 4 pouze vstupní. Přitom na dvou pinech je připojena sériová linka (používá se pro programování čipu přes USB), na dvou pinech je I2C, 3 piny jsou použity pro komunikaci s drivery pro motory, 1 pin měří napětí na baterii. Pro uživatele tedy zbývá 14 pinů. 
