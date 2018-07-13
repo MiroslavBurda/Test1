@@ -22,6 +22,8 @@ piny vpravo lze zapojit na "centrální zdroj" - propojuje se to jumpery, piny t
 (serva zvládnou i 6V, jsou na to stavěná  ) 
 
 ## Expandér
+### Popis expandéru
+
 
 Expandér funguje na 3,3 V , má dva porty A, B - každý má 8 pinů, A je pro uživatele, B je pro tlačítka, LED a vypínání 
 
