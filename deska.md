@@ -13,40 +13,27 @@ Deska RBC umožňuje současně ovládat až 8 DC motorů (1,5 A trvale, 2A špi
 
 Po osazení tranzistorem Q3 je deska chráněná proti přepólování. Přímo na desce je možné měřit reálné hodnoty napětí 3,3V a
 5V rozvedených po desce. 
-K RBC s ESP32 je možné připojit další RBC bez ESP32 a rozšířit tak počet periférií a počet ovládaných motorů. Také je možné připojit k I2C místo V libovolné externí napětí do cca 30V  a provozovat I2C na tomto napětí. 
+
+Čip ESP32 má 26 použitelných pinů, z toho 4 pouze vstupní. Přitom na dvou pinech je připojena sériová linka (používá se pro programování čipu přes USB), na dvou pinech je I2C, 3 piny jsou použity pro komunikaci s drivery pro motory, 1 pin měří napětí na baterii. Pro uživatele tedy zbývá 14 pinů. 
+
+K RBC s ESP32 je možné připojit další RBC bez ESP32 a rozšířit tak počet periférií a počet ovládaných motorů. U motorů na připojené ovládané RBC desce nelze použít enkodéry. Také je možné připojit k I2C místo 5V libovolné externí napětí do cca 30V  a provozovat I2C na tomto napětí. 
 
 ## Napájení
 
-Napájení desky RBC je ideální ze dvou Li-On baterií, které dodávají asi 8 V a dostatečné proudy. K desce lze připojit napětí až do 10V, připojení vyššího napětí neumožňují použité drivery pro motory. 
+Napájení desky RBC je ideální ze dvou Li-On baterií, které dodávají asi 8 V a dostatečné proudy. K desce lze připojit napětí až do 10V, připojení vyššího napětí neumožňují použité drivery pro motory. Do motorů je přiváděn signál PWM na napětí z baterie a 5V napájení pro enkodéry.  
 
 RBC si hlídá napětí na baterii a umí ho měřit do 10 V. 
 V ESP32 je softwarově (v knihovně) nastavené napětí napájení 7,2 V, při kterém ESP32 vypne desku, aby nedošlo k podvybití baterie.  
 
 Napětí 5V pro desku může tvořit buď stabilizátor 7805 nebo spínaný zdroj.  
 Z těchto 5V se tvoří 3,3V na dalším stabilizátoru na desce ESP32 dev kit. Proto při napájení pouze z USB nebude fungovat rozvod 5V na desce. 
-Čip 7805 dává asi 1A, většinu spotřebuje deska sama. Spínaný zdroj může dodávat 2A každý.  
+Čip 7805 dává asi 1A, většinu spotřebuje deska sama. Spínaný zdroj může dodávat 2A. Celkem je možné na desku osadit 5 spínaných zdrojů.   
 
 
 ## Expandér
 
-Expandér funguje na 3,3 V , má dva porty A, B - každý má 8 pinů, A je pro uživatele, B je pro tlačítka, LED a vypínání
+Expandér pinů pro ESP32 je k ESP32 připojen přes I2C. Funguje na 3,3V, má dva porty A, B - každý má 8 pinů, port A je pro uživatele, port B je pro tlačítka, LED a vypínání desky, ale uživatel může port B také použít.
 
- 
- 
-do motorů jde baterkové napětí, + 5V napájení enkodérů 
-z enkodérů jdou 3,3V (čip si drží 3,3 a sonda když chce ho přetáhne k zemi <--> hallova sonda má otevřený kolektor 
-a neumí se proto sama přepnout na logickou 1 ) čínské motory by se měly chovat stejně, protože mají na sobě stejné hallovy sondy, 
-mají také navíc pull-upy k 5V, ale tak velké, že by to ESP mělo přežít 
-je potřeba si zjistit, které piny jsou použité pro enkodéry a nepoužívat je na něco jiného 
- 
-dále jsou I2C na IN a OUT - použije se v případě zřetězní desek - je možné jedním ESP ovládat další desku s motory, ale bez enkodérů 
-
-26 pinů, z toho 4 pouze vstupní, na dvou je sériová linka, na dvou je I2C, 3 piny jsou komunikace s drivery pro motory, 1 pin měří napětí na baterii 
-zbývá 14 
-
-( expandér pinů je připojený na I2C )
-
-Připojení další RBC desky. 
 
 # Rozložení pinů na desce RBC a jejich vlastnosti
 
@@ -55,7 +42,7 @@ Při popisu budeme postupovat zleva doprava a shora dolů.
 
 1. Svorkovnice pro připojení DC motorů 
 
-2. Piny pro připojení motorů s enkodéry 
+2. Piny pro připojení motorů s enkodéry. Protože ESP32 má málo pinů, je potřeba si zjistit, které piny jsou použité pro enkodéry a nepoužívat je na něco jiného. 
 
 3. Výstupní piny, slouží signálovému propojení s další deskou RBC. 
 
@@ -95,28 +82,15 @@ Pod drivery jsou posuvné registry 5B, které generují signál pro motory podle
 
 19. 4x LED 
 
-20. Piny pro připojení k ESP32. Součástí jsou piny portu A z expandéru (20A). 
-Zleva doprava: 3,3V, GND, 2x signálový pín, 5V, GND. 
+20. Piny pro připojení periferií k ESP32. Součástí jsou piny portu A z expandéru (č. 20A). 
+Zleva doprava: 3,3V, GND, 2x signálový pín, 5V, GND. Přitom piny 5V jsou ve výchozím nastavení připojeny na spínané zdroje (č.21A-D, které samozřejmě musí být osazeny). Vyjímka je spodních 8 pinů, které jsou připojeny přímo ke stabilizátoru nebo spínanému zdroji (č. 9). Pokud chceme ostatní piny připojit na zdroj č. 9, musíme propojit jumpery 22A-D. 
+Přitom piny tvoří kaskádu, tj. musím nedřív propojit jumper 22A, potom 22B atd. 
 
-21. Místo pro osazení spínaných zdrojů: 21A, 21B, 21C, 21D.
+21. Místo pro osazení spínaných zdrojů: 21A, 21B, 21C, 1D. Zdroje jsou ve výchozím stavu zapnuté a lze je pinem enable vypnout - přivedu na ně kabel z jiného pinu 
 
 22. Jumpry pro připojení spínaných zdrojů z bodu 21, písmeno vždy odpovídá: 22A, 22B, 22C, 22D.
 
 23. Signál pro inteligentní LED nebo podobné zařízení - piny na desce nejvíce vpravo (nejsou vyznačeny).
-
-
-
-
-
-
- piny vpravo lze zapojit na "centrální zdroj" - propojuje se  jumpery, piny tvoří kaskádu 
-(serva zvládnou i 6V, jsou na to stavěná  ) 
-
-
-zpětivoltovávač dává 5V signál (pouze signál z I2C) pro I2C 5V + piny pro inteligentní LED
- 
-piny vpravo - 3,3V , GND, sig, stejný sig, 5V ze spínaných zdrojů nebo jumperů , GND , jumpery pro spínané zdroje 
-enable signály - zdroje jsou ve výchozím stavu zapnuté a lze je pinem enable vypnout - přivedu na ně kabel z jiného pinu 
 
 
 na každý spínaný zdroj (step-down) jedno servo nebo dvě mikroserva 
