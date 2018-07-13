@@ -38,7 +38,7 @@ Expandér pinů pro ESP32 je k ESP32 připojen přes I2C. Funguje na 3,3 	  V, m
 # Rozložení pinů na desce RBC a jejich vlastnosti
 
 Pro snazší orientaci si otočte desku tak, aby oblouk na desce byl vpravo. 
-Při popisu budeme postupovat zleva doprava a shora dolů. Poloha jednotlivých částí desky je vyznačena v souboru RBC_image_description.png.
+Při popisu budeme postupovat zleva doprava a shora dolů. Poloha jednotlivých částí desky je vyznačena v souboru [RBC_image_description.png](https://github.com/RoboticsBrno/RB3201-RBControl/blob/master/docs/RBC_image_description.png).
 
 1. Svorkovnice pro připojení DC motorů 
 
