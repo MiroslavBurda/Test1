@@ -50,7 +50,7 @@ zbývá 14
 
 Připojení další RBC desky. 
 
-# Popis rozložení pinů na desce RBC
+# Rozložení pinů na desce RBC a jejich vlastnosti
 
 Pro snazší orientaci si otočte desku tak, aby oblouk na desce byl vpravo. 
 Při popisu budeme postupovat zleva doprava a shora dolů. 
@@ -64,8 +64,10 @@ Při popisu budeme postupovat zleva doprava a shora dolů.
 4. Výstupní napájení. Použije se v případě připojení další RBC desky jako vstupní napájení pro připojenou desku. 
  Piny SCL, SDA, GND, 3V3 lze použít i samostatně jako další I2C port.
  
-5. Drivery pro DC motory. Každý driver poskytuje PWM napájení pro dva motory. Každý driver má vyvedený pin 5a (FAULT), 
+5. Drivery pro DC motory. Každý driver poskytuje PWM napájení pro dva motory. Každý driver má vyvedený pin 5A (FAULT), 
 kde je možné měřit, jestli se nenachází v chybovém stavu. Každý driver má ochranu proti přetížení i přehřátí -> vypne se. 
+Pod drivery jsou ******************** 5B, které *******************
+
 
 6. Vstupní piny, slouží signálovému propojení s řídící deskou RBC. 
   Piny SCL, SDA, GND, 3V3 lze použít i samostatně jako další I2C port.
@@ -82,19 +84,33 @@ kde je možné měřit, jestli se nenachází v chybovém stavu. Každý driver 
 
 12.  Tranzistor Q3. Po osazení tranzistorem Q3 je deska chráněná proti přepólování.
 
-13. Expandér pinů. 
+13. Expandér pinů. 13A jsou piny pro sledování přerušení na portu A a portu B expandéru. 
 
 14. Tla(čítka S1, S2, S3. 
 
 15. ESP32 dev kit 
 
-16. "zpětivoltovávač" - malá deska, která vytváří 5V pro I2C a pro signál pro připojení inteligentních LED a podobně - viz č. *****
+16. "zpětivoltovávač" - malá deska, která vytváří 5V pro signál I2C a pro signál pro připojení inteligentních LED a podobně - viz č. 23.
 
 17. 2x I2C na 5V
 
 18. 3x I2C na 3,3V
 
 19. 4x LED 
+
+20. Piny pro připojení k ESP32. Součástí jsou piny portu A z expandéru (20A). 
+Zleva doprava: 3,3V, GND, 2x signálový pín, 5V, GND. 
+
+21. Místo pro osazení spínaných zdrojů: 21A, 21B, 21C, 21D.
+
+22. Jumpry pro připojení spínaných zdrojů z bodu 21, písmeno vždy odpovídá: 22A, 22B, 22C, 22D.
+
+23. Signál pro inteligentní LED nebo podobné zařízení. 
+
+
+
+
+
 
 
 
