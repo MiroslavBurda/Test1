@@ -105,7 +105,7 @@ Zleva doprava: 3,3V, GND, 2x signálový pín, 5V, GND.
 
 22. Jumpry pro připojení spínaných zdrojů z bodu 21, písmeno vždy odpovídá: 22A, 22B, 22C, 22D.
 
-23. Signál pro inteligentní LED nebo podobné zařízení. 
+23. Signál pro inteligentní LED nebo podobné zařízení - piny na desce nejvíce vpravo (nejsou vyznačeny).
 
 
 
