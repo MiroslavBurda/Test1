@@ -1,19 +1,21 @@
-# RBController 
+# Popis desky RB3201-RBControl
 
 ## Určení a cíl
 
-RBController je univerzální deska pro stavbu hobby robotů. Jde v podstatě o shield k desce 
- [ESP32 dev kit](https://www.espressif.com/en/products/hardware/esp32-devkitc/overview), který má dva hlavní cíle: rozšířit počet pinů této desky a umožnit snadné připojení velkého množství různých periférií. 
+RB3201 - RBControl (RBC) je univerzální deska pro stavbu hobby robotů. Jde v podstatě o shield k desce 
+ [ESP32 dev kit](https://www.espressif.com/en/products/hardware/esp32-devkitc/overview), který má dva hlavní cíle: rozšířit počet pinů desky ESP32 a umožnit snadné připojení velkého množství různých periférií. 
 
 ## Hlavní vlastnosti 
 
-Deska umožňuje současně ovládat až 8 DC motorů (1,5 A trvale, 2A špičkově každý).  
+Deska RBC umožňuje současně ovládat až 8 DC motorů (1,5 A trvale, 2A špičkově každý). 
 
 ## Napájení
 
+Napájení desky RBC je ideální ze dvou Li-On baterií, které dodávají asi 8 V a dostatečné proudy. K desce lze připojit napětí až do 10V, připojení vyššího napětí neumožňují použité drivery pro motory. 
 
-Napájení ideální 2xLi-On -> 8V, lze až do 10V, víc drivery pro motory nezváldnou, taky měření napětí na baterce je do 10 V 
-v ESP je softwarově (v knihovně) nastavené napětí 7,2 V, při kterém ESP vypne desku, aby nedošlo k podvibití baterek 
+RBC si hlídá napětí na baterii a umí ho měřit do 10 V. 
+V ESP32 je softwarově (v knihovně) nastavené napětí 7,2 V, při kterém ESP32 vypne desku, aby nedošlo k podvybití baterie.  
+
 7805 tvoří napětí 5V pro desku, z toho se tvoří 3,3V na stabilizátoru na desce ESP dev kit -> při napájení pouze z USB nebude fungovat rozvod 5V na desce 
 7805 dává asi 1A , většinu spotřebuje deska sama , spínaný zdroj by zvládl 2A 
 piny vpravo lze zapojit na "centrální zdroj" - propojuje se to jumpery, piny tvoří kaskádu 
