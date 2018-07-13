@@ -7,7 +7,13 @@ RB3201 - RBControl (RBC) je univerzální deska pro stavbu hobby robotů. Jde v 
 
 ## Hlavní vlastnosti 
 
-Deska RBC umožňuje současně ovládat až 8 DC motorů (1,5 A trvale, 2A špičkově každý). 
+Deska RBC umožňuje současně ovládat až 8 DC motorů (1,5 A trvale, 2A špičkově každý). Dále umí po osazení spínanými zdroji napájet a ovládat 4 serva nebo 8 mikroserv. Má vyvedeno celkem 6 I2C sběrnic na 3,3 V a 2 I2C sběrnice na 5V. Dále je na desce expandér pinů, který je připojený na I2C a obsluhuje další dva porty A,B po 8 pinech. Na desce jsou vyvedená tři tlačítka, 4 LED a piezo. 
+
+## Další vlastnosti 
+
+Po osazení tranzistorem Q3 je deska chráněná proti přepólování. Přímo na desce je možné měřit reálné hodnoty napětí 3,3V a
+5V rozvedených po desce. 
+K RBC s ESP32 je možné připojit další RBC bez ESP32 a rozšířit tak počet periférií. Také je možné připojit k I2C na 5V libovolné externí napětí a provozovat I2C na tomto napětí. 
 
 ## Napájení
 
@@ -18,7 +24,7 @@ V ESP32 je softwarově (v knihovně) nastavené napětí 7,2 V, při kterém ESP
 
 7805 tvoří napětí 5V pro desku, z toho se tvoří 3,3V na stabilizátoru na desce ESP dev kit -> při napájení pouze z USB nebude fungovat rozvod 5V na desce 
 7805 dává asi 1A , většinu spotřebuje deska sama , spínaný zdroj by zvládl 2A 
-piny vpravo lze zapojit na "centrální zdroj" - propojuje se to jumpery, piny tvoří kaskádu 
+piny vpravo lze zapojit na "centrální zdroj" - propojuje se  jumpery, piny tvoří kaskádu 
 (serva zvládnou i 6V, jsou na to stavěná  ) 
 
 ## Expandér
@@ -45,6 +51,8 @@ zbývá 14
 
 ( expandér pinů je připojený na I2C )
 
+Připojení další RBC desky. 
+
 # Popis rozložení pinů na desce RBC
 
 Pro snazší orientaci si otočte desku tak, aby oblouk na desce byl vpravo. 
@@ -54,7 +62,11 @@ Při popisu budeme postupovat zleva doprava a shora dolů.
 
 2. Piny pro připojení motorů s enkodéry 
 
-3. Drivery pro DC motory. Každý driver poskytuje PWM napájení pro dva motory. 
+3. Výstupní piny, slouží signálovému propojení s další deskou RBC. 
+
+4. Výstupní napájení. Použije se v případě připojení další RBC desky. 
+
+5. Drivery pro DC motory. Každý driver poskytuje PWM napájení pro dva motory. 
 
 čtveřice pinů nahoře: 
 Reset, ON, OFF, vypínání desky 
