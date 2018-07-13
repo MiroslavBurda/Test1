@@ -47,6 +47,15 @@ zbývá 14
 
 # Popis rozložení pinů na desce RBC
 
+Pro snazší orientaci si otočte desku tak, aby oblouk na desce byl vpravo. 
+Při popisu budeme postupovat zleva doprava a shora dolů. 
+
+1. Svorkovnice pro připojení DC motorů 
+
+2. Piny pro připojení motorů s enkodéry 
+
+3. Drivery pro DC motory. Každý driver poskytuje PWM napájení pro dva motory. 
+
 čtveřice pinů nahoře: 
 Reset, ON, OFF, vypínání desky 
 
