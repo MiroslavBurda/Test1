@@ -86,14 +86,18 @@ Pod drivery jsou posuvné registry 5B, které generují signál pro motory podle
 Zleva doprava: 3,3V, GND, 2x signálový pín, 5V, GND. Přitom piny 5V jsou ve výchozím nastavení připojeny na spínané zdroje (č.21A-D, které samozřejmě musí být osazeny). Vyjímka je spodních 8 pinů, které jsou připojeny přímo ke stabilizátoru nebo spínanému zdroji (č. 9). Pokud chceme ostatní piny připojit na zdroj č. 9, musíme propojit jumpery 22A-D. 
 Přitom piny tvoří kaskádu, tj. musím nedřív propojit jumper 22A, potom 22B atd. 
 
-21. Místo pro osazení spínaných zdrojů: 21A, 21B, 21C, 1D. Zdroje jsou ve výchozím stavu zapnuté a lze je pinem enable vypnout - přivedu na ně kabel z jiného pinu 
+21. Místo pro osazení spínaných zdrojů (step-down): 21A, 21B, 21C, 1D. Každý zdroj má vyvedený tzv. enable-pin. 
+Zdroje jsou ve výchozím stavu zapnuté a lze je  vypnout tak, že na enable-pin přivedu kabelem z jiného pinu potřebný signál. 
+****************************
+Na každý spínaný zdroj (step-down) je možné připojit jedno servo nebo dvě mikroserva. Přitom zdroj 21D obsluhuje horní dva piny 5V, zdroj 21C dva piny 5V pod nimi, zdroj 21B opět dva piny 5V pod nimi a zdroj 21A všechny zbývající piny 5V kromě spoeních osmi.
+osmi???*************************
 
 22. Jumpry pro připojení spínaných zdrojů z bodu 21, písmeno vždy odpovídá: 22A, 22B, 22C, 22D.
 
 23. Signál pro inteligentní LED nebo podobné zařízení - piny na desce nejvíce vpravo (nejsou vyznačeny).
 
 
-na každý spínaný zdroj (step-down) jedno servo nebo dvě mikroserva 
+
 
 
 teoreticky lze po proškrábnutí propojky přivést na pin vedle ní libovolné (do 30V) na 5V I2C a inteligentní LED - bez R7 a R6 a R4 a R15-R17 - v praxi radši nedělat 
