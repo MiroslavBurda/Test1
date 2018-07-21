@@ -1,6 +1,5 @@
-# Test1
-testik
+# Přeložené verze dokumentace najdete zde:  
 
-ahoj
+pdf: https://github.com/RoboticsBrno/RoboticsBrno-guides/releases
 
-další úprava 
+html: https://roboticsbrno.github.io/RoboticsBrno-guides/
